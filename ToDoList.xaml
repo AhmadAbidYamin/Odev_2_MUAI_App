@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ODEV.ToDoList"
+             Title="Yapılacaklar">
+    <StackLayout>
+        <Label
+            Text="Yapılacaklar"
+            FontSize="20"
+            TextColor="DarkOrange"
+            HorizontalTextAlignment="Center"
+            BackgroundColor="Black"
+            FontAttributes="Bold"
+            WidthRequest="385"
+           >
+        </Label>
+       
+        <HorizontalStackLayout Padding="10,10,0,0">
+            <Entry
+                x:Name="TaskEntry"
+                Placeholder="Not Ekle"
+                HorizontalTextAlignment="Center"
+                WidthRequest="270"
+                HorizontalOptions="FillAndExpand"
+                >
+            </Entry>
+            
+            <ImageButton
+                Source="add.png"
+                Clicked="Elkebutton"
+                WidthRequest="60"
+                HeightRequest="50"
+                BackgroundColor="Transparent"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="End"
+                Margin="0,0,0,0"
+                >
+
+            </ImageButton>
+            <ImageButton
+                Source="save.png"
+                Clicked="Savebutton"
+                WidthRequest="40"
+                HeightRequest="50"
+                BackgroundColor="Transparent"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="End"
+                Margin="0,0,0,0"
+                 >
+
+            </ImageButton>
+        </HorizontalStackLayout>
+        <CollectionView
+            x:Name="NotListe">
+            <CollectionView.ItemTemplate>
+               <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="10,0,10,0" Spacing="7">
+                         <CheckBox IsChecked="{Binding IsComplete}"/>
+                        <Label Text="{Binding Name}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="FillAndExpand"
+                           />
+                        <ImageButton
+                            Source="edit.png"
+                            Clicked="Editbutton"
+                            CommandParameter="{Binding .}"
+                            WidthRequest="30"
+                            HeightRequest="30"
+                            BackgroundColor="Transparent">
+                        </ImageButton>
+                        <ImageButton
+                            Source="delete.png"
+                            Clicked="Deletebutton"
+                            CommandParameter="{Binding .}"
+                            WidthRequest="30"
+                            HeightRequest="30"
+                            BackgroundColor="Transparent">
+                        </ImageButton>
+                        
+                    </StackLayout>
+               </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+        
+       
+    </StackLayout>
+</ContentPage>

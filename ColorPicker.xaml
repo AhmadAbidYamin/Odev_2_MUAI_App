@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ODEV.ColorPicker"
+             Title="Renk Seçici"
+             BackgroundColor="Black">
+    <StackLayout Padding="10,10,10,0">
+        
+
+    
+    <Border BackgroundColor="White"
+            WidthRequest="360"
+            HeightRequest="400"
+            Stroke="White"
+            StrokeThickness="20"
+            
+            StrokeLineJoin="Round"
+            StrokeShape="RoundRectangle">
+      <StackLayout>
+                <Label 
+                Text="Renk Seçici"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                FontSize="35"
+                TextColor="DarkOrange"/>
+         <HorizontalStackLayout Spacing="5" Padding="0,10,0,0">
+            <Label 
+                Text="Kırmızı Ton:"
+                Padding="30,0,0,0"
+                TextColor="Red"
+                FontSize="20" />
+            <Label
+                x:Name="Redvalue"
+                Text="0"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Red"
+                />
+        </HorizontalStackLayout>
+             <Slider
+                x:Name="RedSlider"
+                ThumbColor="Red"
+                MaximumTrackColor="Red"
+                MinimumTrackColor="Red"
+                Minimum="0"
+                Maximum="255"
+                Value="255"
+                Margin="10"
+                HorizontalOptions="FillAndExpand"
+                ValueChanged="SetColor"/>
+        <HorizontalStackLayout Spacing="5">
+             <Label 
+                Text="Yeşil Ton:"
+                Padding="30,0,0,0"
+                TextColor="Green"
+                FontSize="20" />
+             <Label
+                x:Name="Greenvalue"
+                Text="0"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Green"
+                />
+         </HorizontalStackLayout>
+             <Slider
+                x:Name="GreenSlider"
+                ThumbColor="Green"
+                MinimumTrackColor="Green"
+                MaximumTrackColor="Green"
+                Minimum="0"
+                Maximum="255"
+                Value="0"
+                Margin="10"
+                HorizontalOptions="FillAndExpand"
+                ValueChanged="SetColor"/>
+          <HorizontalStackLayout Spacing="5">
+             <Label 
+                Text="Mavi Ton:"
+                Padding="30,0,0,0"
+                TextColor="Blue"
+                FontSize="20" />
+             <Label
+                x:Name="Bluevalue"
+                Text="0"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Blue"
+                
+                 />
+         
+          </HorizontalStackLayout>
+             <Slider
+                x:Name="BlueSlider"
+                ThumbColor="Blue"
+                MinimumTrackColor="Blue"
+                MaximumTrackColor="Blue"
+                Minimum="0"
+                Maximum="255"
+                Value="0"
+                Margin="10"
+                HorizontalOptions="FillAndExpand"
+                ValueChanged="SetColor"/>
+
+               <Label
+                   Text="-Kopyalamak için renk koduna tıklayın-"
+                   FontSize="13"
+                   TextColor="Gray"
+                   HorizontalOptions="Center">
+                </Label>
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Button
+                        Text="Random"
+                        FontAttributes="Bold"
+                        FontSize="23"
+                        HeightRequest="50"
+                        Clicked="Randombuttonclicked"
+                        TextColor="DarkOrange"
+                        BackgroundColor="Black"
+                        
+                        >
+                    </Button>
+                    <Button
+                        x:Name="ColorCode"
+                        FontSize="23"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        Text="#FF0000"
+                        Margin="10"
+                        Clicked="Copybuttonclicked"
+                        TextColor="DarkOrange"
+                        BackgroundColor="Black"
+                        >
+
+                    </Button>
+                
+                
+                </HorizontalStackLayout>
+            </StackLayout>
+         
+    
+     </Border>
+        <Label>
+            
+        </Label>
+        <Border 
+                x:Name="RenkSecici"
+                BackgroundColor="Red"
+                Stroke="Red"
+                StrokeThickness="20"
+                WidthRequest="360"
+                HeightRequest="290"
+                Padding="55"
+                StrokeLineJoin="Round"
+                StrokeShape="RoundRectangle"
+               >
+        </Border>
+    
+   
+    
+    
+    </StackLayout>
+
+</ContentPage>

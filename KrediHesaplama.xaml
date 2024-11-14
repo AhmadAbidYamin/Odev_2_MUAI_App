@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ODEV.KrediHesaplama"
+             Title="Kredi Hesaplama">
+    <StackLayout Padding="20,0,20,0">
+        <Picker x:Name="Kredituru"
+                Title="Kredi Türü Seçin"
+                HorizontalOptions="Center"
+                Margin="10,0,0,30"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+                TextColor="DarkOrange"
+                FontSize="20"
+                HeightRequest="40"
+                VerticalOptions="Center">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>ihtiyac Kredisi</x:String>
+                    <x:String>Konut Kredisi</x:String>
+                    <x:String>Taşit Kredisi</x:String>
+                    <x:String>Ticari Kredisi</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <HorizontalStackLayout Spacing="0" Padding="0">
+            <Label
+                   Text="Kredi Tutari (TL) :"
+                   FontSize="14"
+                   VerticalOptions="Center">
+            </Label>
+            <Entry x:Name="TutarEntry" 
+                   Keyboard="Numeric"
+                   WidthRequest="250"
+                   HorizontalTextAlignment="End"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="0" Padding="0">
+        <Label
+                   Text="Aylık Faiz Oranı (%) :"
+                   FontSize="14"
+                   VerticalOptions="Center">
+        </Label>
+        
+        <Entry x:Name="FaizEntry"
+               Keyboard="Numeric"
+                WidthRequest="230"
+               HorizontalTextAlignment="End"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="0" Padding="0">
+            <Label
+               Text="Vade (Ay) :"
+               FontSize="14"
+                Margin="0"
+                VerticalOptions="Center">
+            </Label>
+            <Entry x:Name="AyEntry" 
+                   Keyboard="Numeric" 
+                   BindingContext="{x:Reference AySlider}" 
+                   Text="{Binding Value, Mode=TwoWay,StringFormat='{0:F0}'}"
+                   WidthRequest="285"
+                   HorizontalTextAlignment="End"
+                   Margin="0"
+                   />
+        </HorizontalStackLayout>
+        <Slider
+                 x:Name="AySlider"
+                 Minimum="0"
+                 Maximum="200"
+                 WidthRequest="300"
+                 VerticalOptions="Center"
+                 BindingContext="{x:Reference AyEntry}"
+                 Margin="30"
+                 ValueChanged="Hesaplabutton"
+                 MinimumTrackColor="DarkOrange"
+                 ThumbColor="DarkOrange"
+                 />
+        <Button Text="Hesapla" Clicked="Hesaplabutton" Margin="0,20,0,30"
+                FontAttributes="Bold"
+                FontSize="23"
+                TextColor="DarkOrange"
+                BackgroundColor="Black"
+                WidthRequest="200"/>
+        
+        <VerticalStackLayout>
+        <Label x:Name="AylikOdemeLabel" Text="Aylık Ödeme:" FontSize="Medium" HorizontalOptions="Center" Margin="5" />
+        <Label x:Name="ToplamOdemeLabel" Text="Toplam Ödeme:" FontSize="Medium" HorizontalOptions="Center"/>
+        <Label x:Name="ToplamFaizLabel" Text="Toplam Faiz:" FontSize="Medium" HorizontalOptions="Center" Margin="5"/>
+            </VerticalStackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ODEV.VucutKitleIndexi"
+             Title="Vucut Kitle Indexi">
+    <StackLayout Padding="20" Spacing="15">
+        <Label 
+            Text="Kilonuz (KG) :"
+            FontSize="20"
+                 />
+        <StackLayout Orientation="Horizontal" >
+
+            <Entry x:Name="WeightEntery"
+                   Keyboard="Numeric"
+                   HorizontalOptions="StartAndExpand"
+                   Text="{Binding Value, Mode=TwoWay,StringFormat='{0:F1}'}"
+                   BindingContext="{x:Reference WeightSlider}"
+                   
+                   />
+            <Slider
+                x:Name="WeightSlider"
+                Minimum="7"
+                Maximum="200"
+                WidthRequest="200"
+                Value="65"
+                VerticalOptions="Center"
+                BindingContext="{x:Reference WeightEntery}"
+                ValueChanged="Hesaplabutton"
+                MinimumTrackColor="DarkOrange"
+ThumbColor="DarkOrange"
+                />
+        </StackLayout>
+        
+        <Label Text="Boyunuz (CM) :"
+               FontSize="20"/>
+        
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="HeightEntery"
+                Keyboard="Numeric"
+                HorizontalOptions="StartAndExpand"
+                Text="{Binding Value, Mode=TwoWay,StringFormat='{0:F1}'}"
+                BindingContext="{x:Reference HeightSlider}"
+                />
+            <Slider
+                x:Name="HeightSlider"
+                Minimum="60"
+                Maximum="250"
+                WidthRequest="200"
+                Value="160"
+                VerticalOptions="Center"
+                BindingContext="{x:Reference WeightEntery}"
+                ValueChanged="Hesaplabutton"
+                MinimumTrackColor="DarkOrange"
+                ThumbColor="DarkOrange"
+                />
+        </StackLayout>
+        <Button Text="Hesapla"
+                Clicked="Hesaplabutton"
+                BackgroundColor="Black"
+                TextColor="DarkOrange"
+                FontSize="23"
+                FontAttributes="Bold"
+                WidthRequest="200"/>
+        <Label>
+            
+        </Label>
+        <Label x:Name="Resultlabel"
+                FontSize="25"
+                TextColor="Black"
+                HorizontalOptions="Center" />
+        <Label x:Name="Resultlabel2"
+                FontSize="20"
+                TextColor="Black"
+                HorizontalOptions="Center" />
+    </StackLayout>
+</ContentPage>
